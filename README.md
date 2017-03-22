@@ -1,6 +1,6 @@
-# vue-ecommerce
+# my-project
 
-> E-business
+> A Vue.js project
 
 ## Build Setup
 
