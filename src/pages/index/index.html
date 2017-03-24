@@ -14,7 +14,7 @@
     <div>
       查询组件
     </div>
-    <div class="main-content-w">
+    <div class="main-content-w" v-cloak>
       <div class="carousel-wrap mt13">
         <transition-group tag="ul" class='slide-ul' name="list">
           <li v-for="(list,index) in slideList" :key="index" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go">
@@ -52,7 +52,7 @@
       </ul>
       <!-- 导航 nav end-->
       <!-- 热门推荐 recommendation-->
-      <div class="recommendation" v-cloak>
+      <div class="recommendation">
         <h2 class="recommendation-title"><i class="icon-chache"></i>热门推荐</h2>
         <div class="recommendation-content">
           <!--  右边   -->
