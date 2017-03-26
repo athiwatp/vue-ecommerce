@@ -98,7 +98,7 @@ new Vue({
       this.sameMsg = ''
       return true
     },
-    register() {
+    changePwd() {
       if (this.validatePhone() && this.validateCode() && this.validateSame() && this.validatePwd()) {
         fetch(url.resetPwd, {
           code: this.code,

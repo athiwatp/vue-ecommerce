@@ -15,7 +15,7 @@
     头部
   </div>
   <div class="register" id="resetPwd" v-cloak>
-    <div class=" register-import">
+    <div class=" register-import" v-show="!isSuccess">
       <dl>
         <dt>注册手机号：</dt>
         <dd><input type="tel" v-model.trim="phone" @blur="validatePhone"></dd>
@@ -41,7 +41,7 @@
         </dd>
       </dl>
       <p class="validate-msg">{{sameMsg}}</p>
-      <button class="btn">
+      <button class="btn"  @click="changePwd">
         确&nbsp;&nbsp;&nbsp;&nbsp;定
       </button>
     </div>
@@ -51,9 +51,9 @@
         <i class="icon-chache"></i>
         <p>设置密码成功！</p>
       </div>
-      <button class="btn">
+      <a class="btn" href="login.html">
         登&nbsp;&nbsp;&nbsp;&nbsp;录
-      </button>
+      </a>
     </div>
   </div>
   <div>
