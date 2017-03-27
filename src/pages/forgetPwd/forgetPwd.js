@@ -59,15 +59,15 @@ new Vue({
       }
     },
     countDown() {
-      this.seconds--;
-      if(this.seconds <= 0){
+      this.seconds--
+      if (this.seconds <= 0) {
         clearInterval(this.timer)
         this.timer = null
         this.seconds = ss
       }
     },
     validateCode() {
-      if(!this.code) {
+      if (!this.code) {
         this.codeMsg = '请输入验证码'
         return false
       }
