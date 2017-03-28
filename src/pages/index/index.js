@@ -18,23 +18,26 @@ new Vue({
     currentIndex: 0,
     timer: ''
   },
+  //在created钩子中获取异步数据
   created() {
     this.getList()
     this.getList(3)
     this.getSlideList()
   },
   methods: {
+    //定义异步获取方法
     getList(type = undefined) {
       fetch(url.list, {
         businessType : type
       }).then(res => {
         if (type) {
-          this.partsList = res.data.merchandiseHotVOList
+          this.partsList = res.data.merchandiseHotVOList  //配件信息
         } else {
-          this.excavatorList = res.data.merchandiseHotVOList
+          this.excavatorList = res.data.merchandiseHotVOList  //设备信息
         }
       })
     },
+    //异步获取轮播图数据方法
     getSlideList() {
       fetch(url.slideList).then(res => {
         this.slideList = res.data.slideList
