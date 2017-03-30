@@ -15,18 +15,7 @@
       查询组件
     </div>
     <div class="main-content-w" v-cloak>
-      <div class="carousel-wrap mt13">
-        <transition-group tag="ul" class='slide-ul' name="list">
-          <li v-for="(list,index) in slideList" :key="index" v-show="index===currentIndex" @mouseenter="stop" @mouseleave="go">
-            <a :href="list.clickUrl" >
-              <img :src="list.image" :alt="list.desc">
-            </a>
-          </li>
-        </transition-group>
-        <div class="carousel-items">
-          <span v-for="(item,index) in slideList.length" :class="{'active':index===currentIndex}" @mouseover="change(index)"></span>
-        </div>
-      </div>
+      <slide :slide-list="slideList" model="rotate" v-if="slideList&&slideList.length"></slide>
       <!-- 导航 nav -->
       <ul class="nav mt13">
         <li>
