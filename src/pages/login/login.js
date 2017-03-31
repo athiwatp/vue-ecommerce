@@ -9,8 +9,11 @@ let url = {
 }
 url = rap(url)
 
+import Top from 'components/top/top.vue'
+import Foot from 'components/foot/foot.vue'
+
 new Vue({
-  el: '#loginBoxMsg',
+  el: '#body',
   data: {
     phone: '',
     pwd: '',
@@ -59,5 +62,9 @@ new Vue({
         })
       }
     }
+  },
+  components: {
+    Top,
+    Foot
   }
 })

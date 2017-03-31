@@ -45,6 +45,33 @@ $main-content-w: 1200px;
     visibility: hidden;
 }
 
-[v-cloak] {
-  display: none !important;
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+label{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    outline:none;
+    margin: 0;
+    padding:0;
+}
+a:link{
+    text-decoration:none;
+}
+a:visited{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+a:active{
+    text-decoration:none;
 }

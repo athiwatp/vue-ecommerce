@@ -1,4 +1,4 @@
-# my-project
+# excavator
 
 > A Vue.js project
 

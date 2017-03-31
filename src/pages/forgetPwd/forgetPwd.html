@@ -10,10 +10,9 @@
   </style>
 </head>
 <body>
-  <div>
-    头部
-  </div>
-  <div class="register" id="resetPwd" v-cloak>
+<div id="body" v-cloak>
+  <Top></Top>
+  <div class="register" id="resetPwd">
     <div class=" register-import" v-show="!isSuccess">
       <dl>
         <dt>注册手机号：</dt>
@@ -55,9 +54,7 @@
       </a>
     </div>
   </div>
-  <div>
-    底部
-  </div>
+  <Foot></Foot>
+</div>
 </body>
-
 </html>

@@ -11,10 +11,13 @@ let url = {
 }
 url = rap(url);
 
+import Top from 'components/top/top.vue'
+import Foot from 'components/foot/foot.vue'
+
 let ss = 11
 
 new Vue({
-  el: '#resetPwd',
+  el: '#body',
   data: {
     phone: '',
     phoneMsg: '',
@@ -113,6 +116,10 @@ new Vue({
         })
       }
     }
+  },
+  components: {
+    Top,
+    Foot
   }
 })
 

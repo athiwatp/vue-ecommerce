@@ -9,10 +9,13 @@ let url = {
 }
 url = rap(url)
 
-import slide from 'components/slide/slide.vue'
+import Slide from 'components/slide/slide.vue'
+import Top from 'components/top/top.vue'
+import Foot from 'components/foot/foot.vue'
+import Search from 'components/search/search.vue'
 
 new Vue({
-  el: '.main-content-w',
+  el: '#body',
   data: {
     excavatorList: '',
     partsList: '',
@@ -54,6 +57,9 @@ new Vue({
     }
   },
   components: {
-    slide
+    Slide,
+    Top,
+    Foot,
+    Search
   }
 })

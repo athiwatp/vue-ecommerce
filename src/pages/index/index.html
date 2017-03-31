@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <title>首页</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="body">
-    <div>
-      头部组件
-    </div>
-    <div>
-      查询组件
-    </div>
-    <div class="main-content-w" v-cloak>
-      <slide :slide-list="slideList" model="rotate" v-if="slideList&&slideList.length"></slide>
+  <div id="body" v-cloak>
+    <Top></Top>
+    <Search></Search>
+    <div class="main-content-w">
+      <Slide :slide-list="slideList" model="rotate" v-if="slideList&&slideList.length"></Slide>
       <!-- 导航 nav -->
       <ul class="nav mt13">
         <li>
@@ -141,9 +142,7 @@
       </div>
       <!-- 资讯常识 information-sense end-->
     </div>
-    <div>
-      底部组件
-    </div>
+    <Foot></Foot>
   </div>
 </body>
 

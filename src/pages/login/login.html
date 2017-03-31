@@ -11,9 +11,8 @@
 </style>
 </head>
 <body>
-  <div>
-    头部
-  </div>
+<div id="body" v-cloak>
+  <Top></Top>
   <div class="login-content">
     <div class="main-content-w">
       <div class="content-title">
@@ -24,7 +23,7 @@
         <h3 class="login-box-title">
                     登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
                 </h3>
-        <div class="login-box-msg" id="loginBoxMsg" v-cloak>
+        <div class="login-box-msg" id="loginBoxMsg">
           <div class="login-box-msg-common login-box-msg-tel">
             <i class="icon-id"></i>
             <input type="tel" placeholder="请输入已验证手机号" v-model.trim="phone" @blur="validatePhone">
@@ -46,9 +45,7 @@
       </div>
     </div>
   </div>
-  <div>
-    底部
-  </div>
+  <Foot></Foot>
+</div>
 </body>
-
 </html>

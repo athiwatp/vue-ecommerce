@@ -15,6 +15,7 @@
 
 <script>
   export default {
+    name: 'slide',
     props: ['slideList','model'],
     data: function () {
       return {

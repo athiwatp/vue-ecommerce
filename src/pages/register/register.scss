@@ -1,12 +1,16 @@
 @import "../../modules/sass/variables.scss";
 @import "../../modules/icon/style.css";
 
+#body {
+  background: url(imgs/bizhi-4.jpg) no-repeat 0 -55px;
+  background-size: 100% 100%;
+}
+
 .register{
     width: 650px;
     height: 418px;
     margin: 0 auto;
     padding-top: 100px;
-    background-color: #fff;
 }
 
 .register-import{

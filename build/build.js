@@ -1,4 +1,5 @@
 require('./check-versions')()
+require('./rap-host.js').hostConfig(false)
 
 process.env.NODE_ENV = 'production'
 
