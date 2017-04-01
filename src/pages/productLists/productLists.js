@@ -9,6 +9,7 @@ import Foot from 'components/foot/foot.vue'
 
 import utils from 'js/utils.js'
 import { fetch, rap } from 'js/fetch.js'
+
 let url = {
   classify: '/lists/classify.do',
   lists: '/lists/lists.do',
