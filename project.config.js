@@ -1,4 +1,4 @@
-var rapHost = "'http://rap.taobao.org/mockjsdata/11037'"
+var rapHost = "'http://rap.taobao.org/mockjsdata/15707'"
 
 module.exports = {
   rapHost: rapHost
