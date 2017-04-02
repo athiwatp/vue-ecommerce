@@ -24,14 +24,14 @@
       </dl>
       <p class="validate-msg" >{{sameMsg}}</p>
       <button class="btn" @click="register">
-        注&nbsp;&nbsp;&nbsp;&nbsp;册
+        {{ btnmsg }}
     </button>
     </div>
     <!--        注册成功后         -->
     <div class="register-success" v-show="isSuccess">
       <div class="register-success-msg">
         <i class="icon-chache"></i>
-        <p>恭喜您已注册成功！</p>
+        <p>{{ sucmsg }}</p>
       </div>
       <a class="btn" href="login.html">
         登&nbsp;&nbsp;&nbsp;&nbsp;录

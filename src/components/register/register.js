@@ -2,9 +2,10 @@
  * Created by Administrator on 2017/4/2.
  */
 import  './register.scss'
-import { Message } from 'element-ui'
-import { checkphone, checkpwd, checksame } from 'js/validate.js'
+
 import {fetch,rap} from 'js/fetch.js'
+import {Message} from 'element-ui'
+import {checkphone, checkpwd, checksame} from 'js/validate.js'
 
 let url = {
   register: '/user/register.do',
@@ -16,6 +17,7 @@ let ss = 11
 
 export default {
   name: 'register',
+  props: ['btnmsg','sucmsg'],
   data: function () {
     return {
       phone: '',
