@@ -6,6 +6,8 @@ import { Message } from 'element-ui'
 import Top from 'components/top/top.vue'
 import Search from 'components/search/search.vue'
 import Foot from 'components/foot/foot.vue'
+import Logstate from 'components/logstate/logstate.vue'
+import Minicart from 'components/minicart/minicart.vue'
 
 import utils from 'js/utils.js'
 import { fetch, rap } from 'js/fetch.js'
@@ -95,6 +97,8 @@ new Vue({
   components: {
     Top,
     Foot,
-    Search
+    Search,
+    Logstate,
+    Minicart
   }
 })
