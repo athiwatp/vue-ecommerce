@@ -24,14 +24,34 @@
                 <td>{{item.model}}</td>
                 <td>{{item.discount}}</td>
                 <td class="num">
-                  <a href="javascript:;" class="icon-jian" @click='reduce()'></a>
+                  <a href="javascript:;" class="icon-jian" @click='reduce({
+                    type: 1,
+                    item,
+                    number: 1,
+                    data: rentData
+                  })'></a>
                   <input type="text" v-model='item.number'  disabled>
-                  <a href="javascript:;" class="icon-jia" @click='add()'></a>
+                  <a href="javascript:;" class="icon-jia" @click='add({
+                    type: 1,
+                    item,
+                    number: 1,
+                    data: rentData
+                  })'></a>
                 </td>
                 <td class="num">
-                  <a href="javascript:;" class="icon-jian" @click='reduce()'></a>
+                  <a href="javascript:;" class="icon-jian" @click='reduce({
+                    type: 1,
+                    item,
+                    month: 1,
+                    data: rentData
+                  })'></a>
                   <input type="text" v-model='item.month' disabled>
-                  <a href="javascript:;" class="icon-jia" @click='add()'></a>
+                  <a href="javascript:;" class="icon-jia" @click='add({
+                    type: 1,
+                    item,
+                    month: 1,
+                    data: rentData
+                  })'></a>
                 </td>
                 <td class="fbtn-color">{{item.sum}}</td>
               </tr>

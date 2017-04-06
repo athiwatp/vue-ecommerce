@@ -2,6 +2,7 @@ import './logstate.scss'
 import { Message } from 'element-ui'
 import { checkphone } from 'js/validate.js'
 import user from 'js/userService'
+import bus from 'js/bus.js'
 
 export default {
   data() {
@@ -14,7 +15,19 @@ export default {
     }
   },
   created() {
-
+    bus.$on('logout',() => {
+      this.isLogin = false
+      this.name = ''
+      this.username = ''
+      this.pwd = ''
+      this.headImage = ''
+    })
+    bus.$on('login',(userInfo) => {
+      this.isLogin = true
+      this.name = userInfo.name
+      this.username = userInfo.mobile
+      this.headImage = userInfo.headImage || require('./imgs/face-img2.jpg')
+    })
   },
   methods: {
     getUserInfo() {
@@ -24,6 +37,7 @@ export default {
         this.name = userInfo.name
         this.username = userInfo.mobile
         this.headImage = userInfo.headImage || require('./imgs/face-img2.jpg')
+        bus.$emit('login',userInfo)
       })
     },
     login() {

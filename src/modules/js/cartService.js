@@ -10,8 +10,16 @@ let url = {
 url = rap(url)
 
 class cart {
+  static list(data) {
+    return fetch(url.list, data)
+  }
+
   static add(data) {
     return fetch(url.add, data)
+  }
+
+  static reduce(data) {
+    return fetch(url.reduce, data)
   }
 }
 

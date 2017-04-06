@@ -2,12 +2,8 @@ import 'normalize.css'
 import './login.scss'
 import { Button } from 'element-ui'
 import {checkphone, checkpwd} from 'js/validate.js'
-import {rap,fetch} from 'js/fetch.js'
+import user from 'js/userService'
 Vue.component(Button.name, Button)
-let url = {
-  login: '/user/login.do'
-}
-url = rap(url)
 
 import Top from 'components/top/top.vue'
 import Foot from 'components/foot/foot.vue'
@@ -49,7 +45,7 @@ new Vue({
     login() {
       if (this.validatePhone() && this.validatePwd()) {
         this.load = true
-        fetch(url.login,{
+        user.login({
           mobile: this.phone,
           pwd: this.pwd
         }).then(res => {
