@@ -8,6 +8,8 @@ import Search from 'components/search/search.vue'
 import Foot from 'components/foot/foot.vue'
 import Logstate from 'components/logstate/logstate.vue'
 import Minicart from 'components/minicart/minicart.vue'
+import cart from 'js/cartService.js'
+import bus from 'js/bus.js'
 
 import utils from 'js/utils.js'
 import { fetch, rap } from 'js/fetch.js'
@@ -91,6 +93,17 @@ new Vue({
         type: this.state
       }).then(res => {
         this.lists = res.data.list
+      })
+    },
+    add(item) {
+      cart.add({
+        month: this.state == 1 ? 1 : undefined,
+        number: 1,
+        type: this.state,
+        unifiedMerchandiseId: item.unifiedMerchandiseId
+      }).then(res => {
+        Message(res.message)
+        bus.$emit('add',item.unifiedMerchandiseId)
       })
     }
   },

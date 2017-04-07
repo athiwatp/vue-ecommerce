@@ -1,6 +1,7 @@
 import './minicart.scss'
 import { Message } from 'element-ui'
 import cart from 'js/cartService.js'
+import bus from 'js/bus.js'
 
 export default {
   props: ['state'],
@@ -16,6 +17,10 @@ export default {
     this.getLists(1)
     this.getLists(2)
     this.getLists(3)
+
+    bus.$on('add', (id) => {
+      this.addNumber(id, this.state)
+    })
   },
   methods: {
     getLists(type) {
@@ -79,6 +84,27 @@ export default {
         }
         para.item.sum -= para.item.discount
         para.data.sum -= para.item.discount
+      })
+    },
+    addNumber(id,type) {
+      let productData
+      switch (type) {
+        case 1:
+          productData = this.rentData
+          break
+        case 2:
+          productData = this.saleData
+          break
+        case 3:
+          productData = this.partsData
+          break
+      }
+      productData.list.forEach((item) => {
+        if (item.unifiedMerchandiseId == id) {
+          item.number++;
+          item.sum += item.discount
+          productData.sum += item.discount
+        }
       })
     }
   }
