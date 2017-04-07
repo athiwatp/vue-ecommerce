@@ -8,7 +8,7 @@
                 <a href="register.html">注册</a>
             </li>
             <li v-else>
-                <a href="login.html">{{mobile}}，您好！</a>
+                <a href="javascript:;">{{mobile}}，您好！</a>
                 <a href="javascript:;" @click="logout">退出</a>
             </li>
         </ul>

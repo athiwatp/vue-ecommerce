@@ -78,9 +78,19 @@
                 <td>{{item.model}}</td>
                 <td>{{item.discount}}</td>
                 <td class="num">
-                  <a href="javascript:;" class="icon-jian" @click='reduce()'></a>
+                  <a href="javascript:;" class="icon-jian" @click='reduce({
+                    type: 2,
+                    item,
+                    number: 1,
+                    data: saleData
+                  })'></a>
                   <input type="text" v-model='item.number'  disabled>
-                  <a href="javascript:;" class="icon-jia" @click='add()'></a>
+                  <a href="javascript:;" class="icon-jia" @click='add({
+                    type: 2,
+                    item,
+                    number: 1,
+                    data: saleData
+                  })'></a>
                 </td>
                 <td class="fbtn-color">{{item.sum}}</td>
               </tr>
@@ -109,9 +119,19 @@
                 <td class="adapter-name"><span v-for='adapter in item.adapterForkliftType' track-by="$index">{{adapter}}&nbsp;</span></td>
                 <td>{{item.discount}}</td>
                 <td class="num">
-                  <a href="javascript:;" class="icon-jian" @click='reduce()'></a>
+                  <a href="javascript:;" class="icon-jian" @click='reduce({
+                    type: 3,
+                    item,
+                    number: 1,
+                    data: partsData
+                  })'></a>
                   <input type="text" v-model='item.number'  disabled>
-                  <a href="javascript:;" class="icon-jia" @click='add()'></a>
+                  <a href="javascript:;" class="icon-jia" @click='add({
+                    type: 3,
+                    item,
+                    number: 1,
+                    data: partsData
+                  })'></a>
                 </td>
                 <td class="fbtn-color">{{item.sum}}</td>
               </tr>

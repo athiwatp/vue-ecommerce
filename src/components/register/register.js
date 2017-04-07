@@ -3,15 +3,9 @@
  */
 import  './register.scss'
 
-import {fetch,rap} from 'js/fetch.js'
 import {Message} from 'element-ui'
 import {checkphone, checkpwd, checksame} from 'js/validate.js'
-
-let url = {
-  register: '/user/register.do',
-  getCode: '/user/getCode.do'
-}
-url = rap(url)
+import user from 'js/userService.js'
 
 let ss = 11
 
@@ -53,7 +47,7 @@ export default {
         }
         this.seconds=10
         this.timer = setInterval(this.countDown,1000)
-        fetch(url.getCode, {
+        user.getCode({
           mobile: this.phone
         }).then(res => {
           Message({
@@ -106,7 +100,7 @@ export default {
     register() {
       // 表单的校验、请求参数
       if (this.validatePhone() && this.validateCode() && this.validatePwd() && this.validateSame()) {
-        fetch(url.register,{
+        user.register({
           code: this.code,
           mobile: this.phone,
           pwd: this.pwd
