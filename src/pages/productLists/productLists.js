@@ -34,7 +34,8 @@ new Vue({
     typeIndex: 0,
     brandId: -1,
     typeId: -1,
-    lists: ''
+    lists: '',
+    addId: ''
   },
   created() {
     this.getPositionMsg()
@@ -103,8 +104,10 @@ new Vue({
         unifiedMerchandiseId: item.unifiedMerchandiseId
       }).then(res => {
         Message(res.message)
-        bus.$emit('add',item.unifiedMerchandiseId)
+        // bus.$emit('add',item.unifiedMerchandiseId)
+        this.addId = "520000198603154526"
       })
+      this.addId = ''
     }
   },
   components: {

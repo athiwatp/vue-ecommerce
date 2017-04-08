@@ -4,7 +4,7 @@ import cart from 'js/cartService.js'
 import bus from 'js/bus.js'
 
 export default {
-  props: ['state'],
+  props: ['state','addid'],
   data() {
     return {
       saleData: '',
@@ -18,9 +18,12 @@ export default {
     this.getLists(2)
     this.getLists(3)
 
-    bus.$on('add', (id) => {
-      this.addNumber(id, this.state)
+    this.$watch('addid', function (a,b) {
+      this.addNumber(a, this.state)
     })
+    // bus.$on('add', (id) => {
+    //   this.addNumber(id, this.state)
+    // })
   },
   methods: {
     getLists(type) {
