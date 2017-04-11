@@ -21,7 +21,7 @@
         <!--个人中心-->
         <logstate></logstate>
         <!--购物车中心-->
-        <minicart :state="state" :addid="addId"></minicart>
+        <minicart :state="state"></minicart>
       </section>
       <!--left  列表-->
       <div class="left-content mt13">
@@ -66,7 +66,7 @@
             <ul class="products-lists mt13">
               <!--租、售-->
               <li v-if="state < 3" v-for="(item,index) in lists">
-                <a href="detail.html"><img :src="item.image"></a>
+                <a :href="'detail.html?id='+item.unifiedMerchandiseId+'&state='+state"><img :src="item.image"></a>
                 <div class="products-lists-item">
                   <h4>{{item.name}}</h4>
                   <span>{{item.desc}}</span>
@@ -88,7 +88,7 @@
               </li>
               <!--配件-->
               <li v-if="state==3" v-for="(item,index) in lists">
-                <a href="detail.html"><img :src="item.image"></a>
+                <a :href="'detail.html?id='+item.unifiedMerchandiseId+'&state='+state"><img :src="item.image"></a>
                 <div class="products-lists-item">
                   <h4>{{item.name}}</h4>
                   <div class="adaptation-situation">
@@ -104,6 +104,7 @@
               </li>
             </ul>
           </div>
+          <pagination :total="50" :page-size="pageSize" :page-num="pageNum" @change="change"></pagination>
         </div>
       </div>
     </div>

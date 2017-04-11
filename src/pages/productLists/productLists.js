@@ -8,6 +8,7 @@ import Search from 'components/search/search.vue'
 import Foot from 'components/foot/foot.vue'
 import Logstate from 'components/logstate/logstate.vue'
 import Minicart from 'components/minicart/minicart.vue'
+import Pagination from 'components/pagination/pagination.vue'
 import cart from 'js/cartService.js'
 import bus from 'js/bus.js'
 
@@ -35,7 +36,10 @@ new Vue({
     brandId: -1,
     typeId: -1,
     lists: '',
-    addId: ''
+    // addId: '',
+    total: 0,
+    pageSize: 8,
+    pageNum: 1
   },
   created() {
     this.getPositionMsg()
@@ -79,7 +83,7 @@ new Vue({
       this.typeId = item.id
       this.query()
     },
-    query() {
+    query(callback) {
       let reqUrl = ''
       if (this.state === 4) {
         reqUrl = url.articles
@@ -91,9 +95,15 @@ new Vue({
         brandId: this.brandId,
         keywords: this.keyword,
         typeId: this.typeId,
-        type: this.state
+        type: this.state,
+        pageSize: this.pageSize,
+        pageNum: this.pageNum
       }).then(res => {
         this.lists = res.data.list
+        this.total = res.data.total
+        if (callback) {
+          callback()
+        }
       })
     },
     add(item) {
@@ -105,9 +115,16 @@ new Vue({
       }).then(res => {
         Message(res.message)
         // bus.$emit('add',item.unifiedMerchandiseId)
-        this.addId = "520000198603154526"
+        bus.$emit('add',item.unifiedMerchandiseId)
+        // this.addId = "520000198603154526"
       })
-      this.addId = ''
+      // this.addId = ''
+    },
+    change(page) {
+      this.pageNum = page
+      this.query(function () {
+        window.scrollTo(0,0)
+      })
     }
   },
   components: {
@@ -115,6 +132,7 @@ new Vue({
     Foot,
     Search,
     Logstate,
-    Minicart
+    Minicart,
+    Pagination
   }
 })

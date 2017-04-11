@@ -66,7 +66,7 @@
             <!-- 配件推荐 -->
             <ul class="accessories-recommendation-item mt13">
               <li v-for="list in partsList" :key="list.id">
-                <a href="javascript:;">
+                <a :href="'detail.html?id='+list.merchandiseId+'&state='+3">
                   <img :src="list.image" alt="配件推荐商品">
                   <p>{{list.name}}</p>
                   <span><i>{{list.discount}}</i>元</span>
@@ -82,7 +82,7 @@
           <ul class="recommendation-content-left">
             <li class="mt13" v-for="list in excavatorList" :key="list.id">
               <span class="hot-logo" v-if="list.isHot">热卖</span>
-              <a href="javascript:;">
+              <a :href="'detail.html?id='+list.merchandiseId+'&state='+list.businessType">
                 <img :src="list.image" style="width:745px;height:292px;">
               </a>
               <!-- 租 -->
@@ -94,8 +94,8 @@
                   <dd>{{list.weight}}</dd>
                 </dl>
                 <dl>
-                  <dt v-if="list.businessType==2">租金：</dt>
-                  <dt v-if="list.businessType==1">金额：</dt>
+                  <dt v-if="list.businessType==1">租金：</dt>
+                  <dt v-if="list.businessType==2">金额：</dt>
                   <dd class="ftheme-color"><i>{{list.discount}}</i>元/月</dd>
                   <dd class="special" v-if="list.businessType==2">(3个月起租)</dd>
                 </dl>

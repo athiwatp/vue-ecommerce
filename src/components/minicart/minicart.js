@@ -4,13 +4,13 @@ import cart from 'js/cartService.js'
 import bus from 'js/bus.js'
 
 export default {
-  props: ['state','addid'],
+  props: ['state'],
   data() {
     return {
       saleData: '',
       rentData: '',
       partsData: '',
-      curIndex: 0
+      curIndex: this.state < 3 ? 0 : 1
     }
   },
   created() {
@@ -18,12 +18,12 @@ export default {
     this.getLists(2)
     this.getLists(3)
 
-    this.$watch('addid', function (a,b) {
-      this.addNumber(a, this.state)
-    })
-    // bus.$on('add', (id) => {
-    //   this.addNumber(id, this.state)
+    // this.$watch('addid', function (a,b) {
+    //   this.addNumber(a, this.state)
     // })
+    bus.$on('add', (id) => {
+      this.addNumber(id, this.state)
+    })
   },
   methods: {
     getLists(type) {
