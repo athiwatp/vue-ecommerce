@@ -93,7 +93,7 @@ new Vue({
     addMonth() {
       this.month++
     },
-    addCart() {
+    addCart(item) {
       cart.add({
         month: this.state == 1 ? 1 : undefined,
         number: 1,
@@ -101,11 +101,9 @@ new Vue({
         unifiedMerchandiseId: item.unifiedMerchandiseId
       }).then(res => {
         Message(res.message)
-        // bus.$emit('add',item.unifiedMerchandiseId)
+        // bus.$emit('add',"520000198603154526")
         bus.$emit('addCart',item.unifiedMerchandiseId)
-        // this.addId = "520000198603154526"
       })
-      // this.addId = ''
     },
   },
   components: {
