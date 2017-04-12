@@ -4,10 +4,11 @@
       <i class="icon-fanye"></i>
       上一页
     </button>
+    <span v-if="curPage > 2">...</span>
     <div style="display: inline-block;" class="pagination">
         <a v-for='page in curPagesList' :class="{'active':page==curPage}" @click='selectPage(page)' href="javascript:;">{{page}}</a>
     </div>
-    <span >...</span>
+    <span v-if="curPage < totalPages - 1">...</span>
     <button class="nextPage" @click='nextPage' :disabled="curPage>=totalPages">
       下一页
       <i class="icon-fanye"></i>
