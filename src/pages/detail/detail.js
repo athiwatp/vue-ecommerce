@@ -7,6 +7,8 @@ import Logstate from 'components/logstate/logstate.vue'
 import Minicart from 'components/minicart/minicart.vue'
 import { Message } from 'element-ui'
 import Utils from 'js/utils.js'
+import cart from 'js/cartService.js'
+import bus from 'js/bus.js'
 
 import { fetch, rap } from 'js/fetch.js'
 let url = {
@@ -92,7 +94,18 @@ new Vue({
       this.month++
     },
     addCart() {
-
+      cart.add({
+        month: this.state == 1 ? 1 : undefined,
+        number: 1,
+        type: this.state,
+        unifiedMerchandiseId: item.unifiedMerchandiseId
+      }).then(res => {
+        Message(res.message)
+        // bus.$emit('add',item.unifiedMerchandiseId)
+        bus.$emit('addCart',item.unifiedMerchandiseId)
+        // this.addId = "520000198603154526"
+      })
+      // this.addId = ''
     },
   },
   components: {

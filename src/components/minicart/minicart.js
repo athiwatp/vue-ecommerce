@@ -24,6 +24,9 @@ export default {
     bus.$on('add', (id) => {
       this.addNumber(id, this.state)
     })
+    bus.$on('addCart', (id) => {
+      this.addNumber(id, this.state)
+    })
   },
   methods: {
     getLists(type) {
