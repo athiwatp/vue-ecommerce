@@ -14,7 +14,7 @@
         </ul>
         <ul class="hd-right">
             <li><a href="index.html" ><i class="icon-Home"></i>首页</a> | </li>
-            <li><a href="javascript:;" ><i class="icon-geren"></i>个人中心</a> | </li>
+            <li><a href="personal.html" ><i class="icon-geren"></i>个人中心</a> | </li>
             <li><a href="javascript:;" ><i class="icon-aboutus"></i>关于我们</a></li>
         </ul>
     </div>

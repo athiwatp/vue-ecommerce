@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>key</title>
+</head>
+<body>
+  <div id="key">
+    <ul>
+      <li v-for="list in lists" :key="list.id">{{list.val}}</li>
+    </ul>
+    <ul>
+      <li v-for="item in items">{{item}}</li>
+    </ul>
+  </div>
+</body>
+</html>
