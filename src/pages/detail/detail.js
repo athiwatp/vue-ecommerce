@@ -28,7 +28,8 @@ new Vue({
     imgs: '',
     imgIndex: 0,
     showIndex: 0,
-    isCollect: false
+    isCollect: false,
+    liWidth: 0
   },
   computed: {
     countMoney() {
@@ -52,6 +53,9 @@ new Vue({
         this.isCollect = this.merchandise.collect
         this.$nextTick(() => {
           //获取li宽度=width+padding+margin
+          let li = document.getElementById("imageList").getElementsByTagName("li")
+          let liStyle = getComputedStyle(li[0], null)
+          this.liWidth = parseInt(liStyle.width)+parseInt(liStyle.marginLeft)*2+parseInt(liStyle.borderWidth)*2
         })
       })
     },

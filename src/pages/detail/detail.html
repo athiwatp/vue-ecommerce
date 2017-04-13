@@ -31,7 +31,7 @@
             <div class="pictures-show-big"><img :src="imgs[showIndex]" alt=""></div>
             <div class="pictures-small-lists-wrap">
               <a class="left-btn icon-fanye" :class="{'bg-theme-color':imgIndex>0}" href="javascript:;" @click='change(-1)'></a>
-              <ul id="imageList" :style="{'width':90*imgs.length+'px','transform':'translateX('+-imgIndex*90+'px'}">
+              <ul id="imageList" :style="{'width':liWidth*imgs.length+30+'px','transform':'translateX('+-imgIndex*liWidth+'px'}">
                 <li v-for="(img,index) in imgs" :key="index" @click="showIndex=index"><img :src="img" alt=""></li>
               </ul>
               <a class="right-btn icon-fanye" :class="{'bg-theme-color':imgIndex<imgs.length-4}" href="javascript:;" @click='change(1)'></a>
