@@ -42,6 +42,7 @@
       }
     },
     created() {
+        this.$router.push(this.tabs[this.tabIndex].path)
         bus.$on('login',(user) => {
             this.user = user
         })
