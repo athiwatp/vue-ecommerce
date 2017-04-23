@@ -42,9 +42,12 @@
       }
     },
     created() {
-        this.$router.push(this.tabs[this.tabIndex].path)
         bus.$on('login',(user) => {
-            this.user = user
+          this.user = user
+        })
+        this.$router.replace({
+          path: this.tabs[this.tabIndex].path,
+          query: {index: this.selectIndex}
         })
     },
     methods: {
@@ -54,7 +57,10 @@
         },
         changeSelect(index) {
             this.selectIndex = index
-            this.$router.push(this.tabs[this.tabIndex].path)
+            this.$router.replace({
+              path: this.tabs[this.tabIndex].path,
+              query: {index: index + 1}
+            })
             window.scrollTo(0,0)
         }
     }

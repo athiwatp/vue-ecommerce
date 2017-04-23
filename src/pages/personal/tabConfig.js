@@ -17,7 +17,7 @@ let tab = [{
       path: 'cart',
       tabName: '我的购物车',
       tabClass: 'gouwuche2',
-      lists: ['配件', '叉车租赁', '叉车售卖']
+      lists: ['挖掘机租赁', '挖掘机售卖', '配件']
     }, {
       path: 'collect',
       tabName: '我的收藏夹',
