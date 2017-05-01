@@ -117,7 +117,7 @@ export default {
       })
     },
     goApply() {
-      order.toOrder(this.lists, this.state + 1)
+      order.toOrder(this.lists, this.state)
     }
   }
 }

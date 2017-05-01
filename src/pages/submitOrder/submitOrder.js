@@ -68,6 +68,15 @@ new Vue({
         order.commit(commitData).then( res => {
           Message(res.message)
           // 跳转到订单列表页
+          if(this.type == 1) {
+            location.href = 'personal.html#/intention?index=0'
+          }
+          if(this.type == 2) {
+            location.href = 'personal.html#/intention?index=1'
+          }
+          if(this.type == 3) {
+            location.href = 'personal.html#/order?index=0'
+          }
         })
       }
     },

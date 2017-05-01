@@ -45,6 +45,17 @@
         bus.$on('login',(user) => {
           this.user = user
         })
+
+        let pathData = location.href.split('#/')[1]
+
+        if(pathData){
+            let path = pathData.split('?')
+            this.tabIndex = tabs.findIndex( item => {
+                return item.path == path[0]
+            })
+          this.selectIndex = path[1].split('=')[1]
+        }
+
         this.$router.replace({
           path: this.tabs[this.tabIndex].path,
           query: {index: this.selectIndex}
