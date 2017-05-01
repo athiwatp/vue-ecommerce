@@ -59,7 +59,7 @@
           </div>
           <div class="right-cart-bottom">
             <span>总价：<i>¥{{rentData.sum}}</i></span>
-            <button >去申请</button>
+            <button @click="goApply()">去申请</button>
           </div>
         </div>
         <div class="cart-session-common purchase-cart" v-if="saleData&&saleData.list.length">
@@ -98,7 +98,7 @@
           </div>
           <div class="right-cart-bottom">
             <span>总价：<i>¥{{saleData.sum}}</i></span>
-            <button >去申请</button>
+            <button @click="goApply()">去申请</button>
           </div>
         </div>
       </template>
@@ -139,7 +139,7 @@
           </div>
           <div class="right-cart-bottom">
             <span>总价：<i>¥{{partsData.sum}}</i></span>
-            <button >去申请</button>
+            <button @click="goApply()">去申请</button>
           </div>
         </div>
       </template>

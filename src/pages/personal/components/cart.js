@@ -1,5 +1,7 @@
  import cart from 'js/cartService.js'
  import Pagination from 'components/pagination/pagination.vue'
+ import { Message } from 'element-ui'
+ import order from 'js/orderService.js'
 
  export default {
    name: 'cart',
@@ -152,10 +154,9 @@
        } else {
          this.allSelected = false
        }
-       this.sum = this.calsum()
      },
      checkAll() {
-       return this.listsData.list.every((item) => {
+       return this.lists.every((item) => {
          return item.isSelected
        })
      },
@@ -163,14 +164,23 @@
        this.lists.forEach((item) => {
          item.isSelected = this.allSelected
        })
-       this.sum = this.calsum()
      },
      changeNum(page) {
       this.pageNum = page
       this.getLists()
      },
      goApply() {
-
+       let lists = this.lists.filter((item) =>{
+         return item.isSelected
+       })
+       if(!lists.length){
+         Message({
+           message: '请选择商品',
+           type: 'warning'
+         })
+         return
+       }
+       order.toOrder(lists,this.selectIndex)
      },
    },
    components: {

@@ -9,6 +9,7 @@ import { Message } from 'element-ui'
 import Utils from 'js/utils.js'
 import cart from 'js/cartService.js'
 import bus from 'js/bus.js'
+import order from 'js/orderService.js'
 
 import { fetch, rap } from 'js/fetch.js'
 let url = {
@@ -109,6 +110,14 @@ new Vue({
         bus.$emit('addCart',item.unifiedMerchandiseId)
       })
     },
+    goApply() {
+      let product = {
+        month: this.month,
+        number:　this.number,
+        unifiedMerchandiseId: this.id
+      }
+      order.toOrder([product], this.state)
+    }
   },
   components: {
     Top,

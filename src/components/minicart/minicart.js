@@ -2,11 +2,13 @@ import './minicart.scss'
 import { Message } from 'element-ui'
 import cart from 'js/cartService.js'
 import bus from 'js/bus.js'
+import order from 'js/orderService.js'
 
 export default {
   props: ['state'],
   data() {
     return {
+      lists: '',
       saleData: '',
       rentData: '',
       partsData: '',
@@ -36,6 +38,7 @@ export default {
         type
       }).then(res => {
         let data = res.data
+        this.lists = data.list
         switch (type) {
           case 1:
             this.rentData = data
@@ -112,6 +115,9 @@ export default {
           productData.sum += item.discount
         }
       })
+    },
+    goApply() {
+      order.toOrder(this.lists, this.state + 1)
     }
   }
 }
