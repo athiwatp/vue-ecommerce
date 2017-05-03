@@ -27,7 +27,12 @@ let tab = [{
       path: 'setting',
       tabName: '个人设置',
       tabClass: 'shouhou',
-      lists: ['编辑个人资料', '地址管理', '安全设置']
+      lists: ['编辑个人资料', '地址管理', '安全设置'],
+      children: [
+        {path: 'info'},
+        {path: 'address'},
+        {path: 'safe'}
+      ]
     }, {
       path: 'feedback',
       tabName: '意见反馈',

@@ -46,20 +46,37 @@
           this.user = user
         })
 
-        let pathData = location.href.split('#/')[1]
-
-        if(pathData){
-            let path = pathData.split('?')
-            this.tabIndex = tabs.findIndex( item => {
-                return item.path == path[0]
-            })
+      let pathData = location.href.split('#/')[1]
+      if(pathData){
+        // 一级路由带参数
+        if(pathData.indexOf('?') > -1){
+          let path = pathData.split('?')
+          this.tabIndex = tabs.findIndex((item) => {
+            return item.path == path[0]
+          })
           this.selectIndex = path[1].split('=')[1]
+        } else { //二级路由
+          let path = pathData.split('/')
+          this.tabIndex = tabs.findIndex((item) => {
+            return item.path == path[0]
+          })
+          this.selectIndex = this.tabs[this.tabIndex].children.findIndex(item => {
+            return item.path == path[1]
+          })
         }
+      }
 
+      let tab = this.tabs[this.tabIndex]
+      if(tab.children) {
+        this.$router.push({
+          path: '/' + tab.path + '/' + tab.children[this.selectIndex].path
+        })
+      }else {
         this.$router.replace({
           path: this.tabs[this.tabIndex].path,
-          query: {index: this.selectIndex}
+          query: {index:this.selectIndex}
         })
+      }
     },
     methods: {
         changeTab(index) {
@@ -67,13 +84,20 @@
             this.selectIndex = -1
         },
         changeSelect(index) {
-            this.selectIndex = index
-            this.$router.replace({
-              path: this.tabs[this.tabIndex].path,
-              query: {index: index + 1}
-            })
-            window.scrollTo(0,0)
+        this.selectIndex = index
+        window.scrollTo(0,0)
+        let tab = this.tabs[this.tabIndex]
+        if(tab.children){
+          this.$router.push({
+            path: '/' + tab.path + '/' + tab.children[index].path
+          })
+        }else{
+          this.$router.push({
+            path: '/' + tab.path,
+            query: {index: index }
+          })
         }
+      }
     }
   }
 </script>

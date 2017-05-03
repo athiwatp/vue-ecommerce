@@ -1,5 +1,5 @@
 <template>
   <div>
-    个人设置
+    <router-view></router-view>
   </div>
 </template>
