@@ -22,15 +22,15 @@
               <td>{{item.zipCode}}</td>
               <td class="address-act">
                   <a class="ftheme-color" href="javascript:;" @click='editAddress(item)'>修改</a>
-                  <a class="fbtn-color" href="javascript:;" @click='deleteAddress(item,index)'>删除</a>
-                  <a v-if='item.acquiesce === 2' href="javascript:;" @click='setDefault(item)'>设为默认</a>
+                  <a class="fbtn-color" href="javascript:;" @click='deleteAddress({id:item.id,index})'>删除</a>
+                  <a v-if='item.acquiesce === 2' href="javascript:;" @click='setDefault({address:item})'>设为默认</a>
                   <span v-if='item.acquiesce === 1' style="color:gray;">默认地址</span>
               </td>
           </tr>
       </table>
       <pagination :total='total' :display='5' :page-size='pageSize' :page-num='pageNum'></pagination>
     </div>
-    <edit-address :add="add" @cancel="cancel" @add-address="addAddress" v-else></edit-address>
+    <edit-address :add="add" v-else></edit-address>
   </div>
 </template>
 

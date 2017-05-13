@@ -1,5 +1,7 @@
 import { Message } from 'element-ui'
 import address from 'js/addressService.js'
+import {mapMutations,mapActions} from 'vuex'
+
 export default {
   props: ['add'],
   data() {
@@ -46,16 +48,21 @@ export default {
       })
     },
     saveAddress() {
-      let save = this.add ? address.update(this.addr) : address.add(this.addr)
-      save.then(res => {
-        Message(res.message)
-        //修改: 数据是引用类型
-        //新增: 数据要添加到父组件
-        this.$emit('add-address',this.addr)
-      })
+      let data = {address:this.addr}
+      this.add == null ? this.addAddress(data) : this.updateAddress(data)
+      // let save = this.add ? address.update(this.addr) : address.add(this.addr)
+      // save.then(res => {
+      //   Message(res.message)
+      //   //修改: 数据是引用类型
+      //   //新增: 数据要添加到父组件
+      //   this.$emit('add-address',this.addr)
+      // })
     },
     cancel() {
-      this.$emit('cancel')
-    }
+      // this.$emit('cancel')
+      this.changeEdit({edit: false})
+    },
+    ...mapActions(['addAddress','updateAddress']),
+    ...mapMutations(['changeEdit'])
   }
 }
