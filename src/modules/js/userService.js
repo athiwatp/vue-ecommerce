@@ -1,20 +1,17 @@
-/**
- * Created by Administrator on 2017/4/5.
- */
 import {fetch,rap} from 'js/fetch.js'
 
 let url = {
   info: '/user/getUser.do',
   logout: '/user/logout.do',
-  login: '/user/login.do',
-  register: '/user/register.do',
-  getCode: '/user/getCode.do'
+  login : '/user/login.do',
+  headImg: '/personal/headImg.do',
+  code: '/feedback/code.do'
 }
 url = rap(url)
 
 class user {
   static login(data) {
-    return fetch(url.login, data)
+    return fetch(url.login,data)
   }
 
   static getInfo() {
@@ -25,13 +22,14 @@ class user {
     return fetch(url.logout)
   }
 
-  static register(data) {
-    return fetch(url.register, data)
+  static headImg(data) {
+    return fetch(url.headImg,data)
   }
 
-  static getCode(data) {
-    return fetch(url.getCode, data)
+  static code() {
+    return fetch(url.code)
   }
+
 }
 
 export default user
