@@ -2,7 +2,8 @@ import { fetch, rap } from 'js/fetch.js'
 
 let url = {
   add: '/collect/add.do',
-  cancel: '/collect/cancel.do'
+  cancel: '/collect/cancel.do',
+  lists: '/collect/lists.do'
 }
 url = rap(url)
 
@@ -16,6 +17,9 @@ class collect {
     return fetch(url.cancel, data)
   }
 
+  static lists(data) {
+    return fetch(url.lists, data)
+  }
 }
 
 export default collect
