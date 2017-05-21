@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>帮助中心</title>
+</head>
+
+<body>
+  <div id="app">
+    <top></top>
+    <search></search>
+    <!--left nav-->
+    <div class="main-content-w clearfix">
+      <!--导航-->
+      <section id="leftNav">
+      <ul class="left-nav">
+        <li >
+          <a href="javascript:;" >
+            <i class="icon-ziyuan2"></i>
+             咨询常识
+          </a>
+        </li>
+        <li >
+          <a href="javascript:;" >
+            <i class="icon-zhinan"></i>
+             购物指南
+          </a>
+          <ul class="left-subnav" >
+            <li class="select"><a href="javascript:;">购物流程</a></li>
+            <li ><a href="javascript:;">会员介绍</a></li>
+            <li ><a href="javascript:;">常见问题</a></li>
+          </ul>
+        </li>
+        <li >
+          <a href="javascript:;" >
+            <i class="icon-user"></i>
+             售后服务
+          </a>
+        </li>
+        <li >
+          <a href="javascript:;" >
+            <i class="icon-zhifu"></i>
+             支付方式
+          </a>
+        </li>
+        <li >
+          <a href="javascript:;" >
+            <i class="icon-songhou"></i>
+             送货方式
+          </a>
+        </li>
+      </ul>
+      </section>
+      <!--right content-->
+      <div class="right-content mt13">
+        <h3 class="common-title">购物流程</h3>
+        <div class="right-mian-content mt13">
+          <div class="article-lsit" v-if="true">
+            <ul class="article-lists">
+              <li v-for="index in 10">
+                <i>{{index}}</i>
+                <p><a href="javascript:;">文章{{index}}</a></p>
+                <span>2017.04.30</span>
+              </li>
+
+            </ul>
+            <pagination :total='30' :display='5' :page-size='10' :page-num='1'></pagination>
+          </div>
+          <!-- 文章详情 -->
+          <div v-html="" v-if="false"></div>
+        </div>
+      </div>
+    </div>
+    <foot></foot>
+  </div>
+</body>
+
+</html>

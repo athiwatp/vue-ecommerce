@@ -28,6 +28,78 @@
         <button class="use-new-address-btn float-r">使用新地址</button>
         <button class="other-address-btn float-r">其他地址</button>
       </div>
+
+
+      <!--其他地址 列表-->
+        <div class="other-address-lists" v-if='addressList'>
+            <h2 class="submit-order-title">收货地址列表</h2>
+            <table>
+                <thead>
+                    <td></td>
+                    <td>收货人</td>
+                    <td>电话/手机</td>
+                    <td>所在地区</td>
+                    <td>详细地址</td>
+                    <td>操作</td>
+                </thead>
+                <tr v-for='(list,index) in addressList'>
+                    <td><input type="radio" name="checked" :value='index' ></td>
+                    <td>{{list.name}}</td>
+                    <td>{{list.mobile}}</td>
+                    <td>{{list.province}}{{list.city}}{{list.district}}</td>
+                    <td>{{list.address}}</td>
+                    <td>
+                        <a class="revise-btn ftheme-color" href="javascript:;" >修改</a>
+                        <a class="delete-btn fbtn-color" href="javascript:;" >删除</a>
+                        <a href="javascript:;" >
+                        {{list.acquiesce==1?"默认地址":"设为默认"}}</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-content">
+                <button >确认</button>
+                <button class="cancel-btn">取消</button>
+            </div>
+        </div>
+
+        <!--新增地址、修改地址-->
+        <div class="use-new-address" v-if='true'>
+            <h2 class="submit-order-title">新增收货地址</h2>
+            <dl>
+                <dt>收货人姓名：</dt>
+                <dd><input type="text"  placeholder="请输入姓名"></dd>
+            </dl>
+            <dl>
+                <dt>手机号：</dt>
+                <dd><input type="tel"  maxlength="11" placeholder="请输入手机号"></dd>
+            </dl>
+            <dl class="province-choice">
+                <dt>省市区地址：</dt>
+                <dd>
+                    <select name="province" id="province" >
+                        <option value="">请选择省份</option>
+                    </select>
+                    <select name="city" id="city" >
+                        <option value="">请选择市</option>
+                    </select>
+                    <select name="district" id="district" >
+                        <option value="">请选择区</option>
+                    </select>
+                    <input type="text"  placeholder="请输入详细收货地址">
+                </dd>
+            </dl>
+            <div class="set-default-choice">
+                <input type="checkbox" :true-value='1' :false-vlaue='2'>设置为默认收货地址
+            </div>
+            <div class="btn-content">
+                <button >确认</button>
+                <button class="cancel-btn" >取消</button>
+            </div>
+        </div>
+
+
+
+
       <!--开具发票-->
       <!--只有配件有开具发票-->
       <template v-if='type == 3'>
